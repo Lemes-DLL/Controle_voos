@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block conteudo %}
+
+<main class="container mt-4 mb-4">
+    {% include 'parciais/_messages.html' %}
+    <div class="row">
+        <div class="col">
+            <h3 class="mb-4">Voos</h3>
+            <p>Bem-vindo(a) {{user.first_name}} </p>
+
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <tr>
+                        <th scope="col">Data</th>
+                        <th scope="col">Tempo voo (min)</th>
+                        <th scope="col">Tipo</th>
+                        <th scope="col">Aeronave</th>
+                        <th scope="col">Valor voo</th>
+
+                    </tr>
+
+                    {% for Voo in flights %}
+                        {% if user == Voo.piloto %}
+                        <tr>
+                            <th scope="row">{{Voo.data}}</td>
+                            <td>{{Voo.tempo_voo}}</td>
+                            <td>{{Voo.tipo}}</td>
+                            <td>{{Voo.aeronave}}</td>
+                            <td>{{Voo.valor_voo_total}}</td>
+                        </tr>
+                        {% endif %}
+                    {% endfor %}
+
+                    
+
+                </table>
+            </div>
+        </div>
+    </div>
+</main>
+
+
+{% endblock  %}

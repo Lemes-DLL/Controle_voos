@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+<style>
+  .form-control {
+    text-align: center; 
+    margin: auto; 
+    display: block; 
+    width:20ch
+  }  
+</style>
+
+{% block conteudo %}
+<form method="POST" action="{% url 'socios:login' %}" style="text-align:center; margin-top:5%; margin-bottom:5%">
+    {% csrf_token %}
+    <div class="form-group">
+      <label for="inputUsuario1">Canac</label>
+      <input type="text" name='username' class="form-control" id="InputUsuario1" aria-describedby="usuarioHelp" placeholder="Digite seu canac" style="text-align: center; margin: auto; display: block; width:20ch" align:"middle">
+    </div>
+    <div class="form-group">
+      <label for="exampleInputPassword1">Senha</label>
+      <input type="password" name='password' class="form-control" id="exampleInputPassword1" placeholder="Digite sua senha" style="text-align: center; margin: auto; display: block; width:20ch" align:"middle">
+    </div>
+    <button type="submit" class="btn btn-primary">Entrar</button>
+  </form>
+{% endblock conteudo %}
